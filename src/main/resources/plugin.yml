@@ -1,0 +1,4 @@
+name: LegacyGameManager
+version: '${project.version}'
+main: de.unverwunderbar.legacy.legacygamemanager.LegacyGameManager
+load: STARTUP
