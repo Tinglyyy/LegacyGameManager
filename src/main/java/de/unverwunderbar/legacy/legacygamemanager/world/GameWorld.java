@@ -3,6 +3,7 @@ package de.unverwunderbar.legacy.legacygamemanager.world;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
@@ -16,7 +17,13 @@ public abstract class GameWorld extends ServerWorld {
 
     @Getter @Setter
     private LobbyWorld lobbyWorld;
-    public GameWorld(World inGameWorld, LobbyWorld lobbyWorld) {
+
+    /**
+     *
+     * @param inGameWorld -> world template for this specific gameWorld
+     * @param lobbyWorld -> lobby for this specific gameWorld - can be null, but must be defined at some point
+     */
+    public GameWorld(World inGameWorld, @Nullable LobbyWorld lobbyWorld) {
         super(inGameWorld);
 
         this.lobbyWorld = lobbyWorld;
@@ -41,6 +48,8 @@ public abstract class GameWorld extends ServerWorld {
     }
 
     public static GameWorld fromWorld(World world) {
+        if(world == null)
+            return null;
         return gameWorlds.get(world);
     }
 
