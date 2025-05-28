@@ -2,3 +2,12 @@ name: LegacyGameManager
 version: '${project.version}'
 main: de.unverwunderbar.legacy.legacygamemanager.LegacyGameManager
 load: STARTUP
+commands:
+  reload:
+    usage: <command>
+    aliases: [rl, gmrl]
+  start:
+    usage: <command> <GameWorld>
+  stop:
+    usage: <command> <GameWord>
+    aliases: [finish, end]
